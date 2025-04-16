@@ -5,7 +5,7 @@ from telegram.ext import Application, CommandHandler, ContextTypes
 from datetime import datetime, timedelta
 
 # Bot Token
-TOKEN = "7992710089:AAG2SS1ZqVupi4qMtMNN_cmvvzpIOnpY-ec"
+TOKEN = "BOT_TOKEN"
 
 # Global dictionary to store active timers for each chat
 active_timers = {}
