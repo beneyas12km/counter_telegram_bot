@@ -212,5 +212,9 @@ def restart_bot():
             print("Restarting the bot...")
             continue  # Restart the bot if it stops
 
+import os
+
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
     restart_bot()
+
