@@ -4,6 +4,8 @@ import subprocess
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 from datetime import datetime, timedelta
+from flask import Flask
+from threading import Thread
 
 # Bot Token
 TOKEN = os.environ.get("BOT_TOKEN")
@@ -213,9 +215,20 @@ def restart_bot():
             print("Restarting the bot...")
             continue  # Restart the bot if it stops
 
-import os
+def keep_alive():
+    app = Flask('')
+
+    @app.route('/')
+    def home():
+        return "✅ Bot is alive!"
+
+    port = int(os.environ.get("PORT", 3000))
+    app.run(host='0.0.0.0', port=port)
+
+# Start the keep_alive server in a separate thread
+Thread(target=keep_alive).start()
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 3000))
+    keep_alive()
     restart_bot()
 
