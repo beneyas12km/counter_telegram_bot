@@ -1,3 +1,4 @@
+import os
 import asyncio
 import subprocess
 from telegram import Update
@@ -5,7 +6,7 @@ from telegram.ext import Application, CommandHandler, ContextTypes
 from datetime import datetime, timedelta
 
 # Bot Token
-TOKEN = "BOT_TOKEN"
+TOKEN = os.environ.get("BOT_TOKEN")
 
 # Global dictionary to store active timers for each chat
 active_timers = {}
