@@ -213,7 +213,6 @@ def restart_bot():
         except Exception as e:
             print(f"Bot stopped due to error: {e}")
             print("Restarting the bot...")
-            continue  # Restart the bot if it stops
 
 def keep_alive():
     app = Flask('')
@@ -229,6 +228,4 @@ def keep_alive():
 Thread(target=keep_alive).start()
 
 if __name__ == "__main__":
-    keep_alive()
     restart_bot()
-
